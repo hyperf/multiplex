@@ -11,19 +11,23 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Cases;
 
+use Multiplex\Packer;
 use Multiplex\Packet;
 
 /**
  * @internal
  * @coversNothing
  */
-class PacketTest extends AbstractTestCase
+class PackerTest extends AbstractTestCase
 {
-    public function testPacketConstructor()
+    public function testPack()
     {
-        $packet = new Packet(1, $body = uniqid());
+        $packer = new Packer();
+        $data = $packer->pack(new Packet($id = rand(0, 99999), $body = uniqid()));
+        $this->assertSame(21, strlen($data));
 
-        $this->assertSame(1, $packet->getId());
+        $packet = $packer->unpack($data);
+        $this->assertSame($id, $packet->getId());
         $this->assertSame($body, $packet->getBody());
     }
 }

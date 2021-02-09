@@ -11,6 +11,19 @@ declare(strict_types=1);
  */
 namespace Multiplex\Constract;
 
+use Hyperf\Utils\Collection;
+
 interface ServerInterface
 {
+    /**
+     * @return $this
+     */
+    public function bind(string $name, int $port, Collection $config);
+
+    /**
+     * @return $this
+     */
+    public function handle(callable $callable);
+
+    public function start(): void;
 }

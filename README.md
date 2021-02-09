@@ -1,5 +1,5 @@
-# component-creater
+# channel driven multiplexing connection
 
 ```
-composer create-project hyperf/component-creater
+composer require multiplex/multiplex
 ```

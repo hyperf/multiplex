@@ -41,8 +41,8 @@
         "cs-fix": "php-cs-fixer fix $1"
     },
     "extra": {
-        "hyperf": {
-            "config": "Multiplex\\ConfigProvider"
+        "branch-alias": {
+            "dev-main": "1.0-dev"
         }
     }
 }

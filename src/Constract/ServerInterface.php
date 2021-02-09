@@ -12,10 +12,13 @@ declare(strict_types=1);
 namespace Multiplex\Constract;
 
 use Hyperf\Utils\Collection;
+use Multiplex\Exception\ServerBindFailedException;
+use Multiplex\Exception\ServerStartFailedException;
 
 interface ServerInterface
 {
     /**
+     * @throws ServerBindFailedException
      * @return $this
      */
     public function bind(string $name, int $port, Collection $config);
@@ -25,5 +28,8 @@ interface ServerInterface
      */
     public function handle(callable $callable);
 
+    /**
+     * @throws ServerStartFailedException
+     */
     public function start(): void;
 }

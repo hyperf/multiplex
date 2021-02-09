@@ -9,19 +9,17 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex;
+namespace Multiplex\Constract;
 
-use Multiplex\Constract\IdGeneratorInterface;
-
-class IdGenerator implements IdGeneratorInterface
+interface SerializerInterface
 {
     /**
-     * @var int
+     * @param mixed $data
      */
-    protected $id = 0;
+    public function serialize($data): string;
 
-    public function generate(): int
-    {
-        return ++$this->id;
-    }
+    /**
+     * @return mixed
+     */
+    public function unserialize(string $serialized);
 }

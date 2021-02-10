@@ -11,9 +11,16 @@ declare(strict_types=1);
  */
 namespace Multiplex\Constract;
 
+use Hyperf\Engine\Channel;
+use Multiplex\ChannelMapper;
+
 interface ClientInterface
 {
     public function send($data): int;
 
     public function recv(int $id);
+
+    public function getChannelMapper(): ChannelMapper;
+
+    public function getWaiter(): Channel;
 }

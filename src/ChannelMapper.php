@@ -16,31 +16,9 @@ use Hyperf\Engine\Channel;
 class ChannelMapper
 {
     /**
-     * @var int
-     */
-    protected $limit;
-
-    /**
-     * @var float|int
-     */
-    protected $timeout;
-
-    /**
      * @var Channel[]
      */
     protected $channels;
-
-    /**
-     * @var Channel
-     */
-    protected $waiter;
-
-    public function __construct(int $limit = 63355, float $timeout = 0)
-    {
-        $this->limit = $limit;
-        $this->timeout = $timeout;
-        $this->waiter = new Channel($limit);
-    }
 
     public function get(int $id, bool $initialize = false): ?Channel
     {
@@ -62,10 +40,5 @@ class ChannelMapper
         }
 
         unset($this->channels[$id]);
-    }
-
-    public function getWaiter(): Channel
-    {
-        return $this->waiter;
     }
 }

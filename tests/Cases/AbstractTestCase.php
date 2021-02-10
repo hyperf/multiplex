@@ -24,6 +24,9 @@ abstract class AbstractTestCase extends TestCase
 
     public function runInCoroutine(callable $callable)
     {
+        if (extension_loaded('swow')) {
+            return $callable();
+        }
         return run($callable);
     }
 }

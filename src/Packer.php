@@ -11,7 +11,9 @@ declare(strict_types=1);
  */
 namespace Multiplex;
 
-class Packer
+use Multiplex\Constract\PackerInterface;
+
+class Packer implements PackerInterface
 {
     public function pack(Packet $packet): string
     {

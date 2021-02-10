@@ -13,7 +13,7 @@ namespace Multiplex\Constract;
 
 interface ClientInterface
 {
-    public function send(int $id, $data);
+    public function send($data): int;
 
     public function recv(int $id);
 }

@@ -26,6 +26,8 @@ class ChannelMapperTest extends AbstractTestCase
             $mapper = new ChannelMapper();
             $chan = $mapper->get(1, true);
             $this->assertInstanceOf(Channel::class, $chan);
+            $chan = $mapper->get(1);
+            $this->assertInstanceOf(Channel::class, $chan);
             go(function () use ($chan) {
                 usleep(10 * 1000);
                 $chan->push('Hello World.');
@@ -34,6 +36,7 @@ class ChannelMapperTest extends AbstractTestCase
             $this->assertSame('Hello World.', $chan->pop());
             $mapper->close(1);
             $this->assertTrue($chan->isClosing());
+            $this->assertNull($mapper->get(1));
         });
     }
 }

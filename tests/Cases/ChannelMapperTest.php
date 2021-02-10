@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
+namespace HyperfTest\Cases;
+
+use Hyperf\Engine\Channel;
+use Multiplex\ChannelMapper;
+
+/**
+ * @internal
+ * @coversNothing
+ */
+class ChannelMapperTest extends AbstractTestCase
+{
+    public function testChannelMapper()
+    {
+        $this->runInCoroutine(function () {
+            $mapper = new ChannelMapper();
+            $chan = $mapper->get(1, true);
+            $this->assertInstanceOf(Channel::class, $chan);
+            go(function () use ($chan) {
+                usleep(10 * 1000);
+                $chan->push('Hello World.');
+            });
+
+            $this->assertSame('Hello World.', $chan->pop());
+            $mapper->close(1);
+            $this->assertTrue($chan->isClosing());
+        });
+    }
+}

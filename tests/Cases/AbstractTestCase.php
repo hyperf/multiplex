@@ -21,4 +21,9 @@ abstract class AbstractTestCase extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
+    public function runInCoroutine(callable $callable)
+    {
+        return run($callable);
+    }
 }

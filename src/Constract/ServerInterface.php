@@ -28,8 +28,6 @@ interface ServerInterface
      */
     public function handle(callable $callable);
 
-    public function getSerializer(): SerializerInterface;
-
     /**
      * @throws ServerStartFailedException
      */

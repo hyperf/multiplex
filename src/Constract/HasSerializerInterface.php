@@ -11,9 +11,7 @@ declare(strict_types=1);
  */
 namespace Multiplex\Constract;
 
-interface ClientInterface
+interface HasSerializerInterface
 {
-    public function send(int $id, $data);
-
-    public function recv(int $id);
+    public function getSerializer(): SerializerInterface;
 }

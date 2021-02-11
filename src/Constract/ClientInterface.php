@@ -11,7 +11,6 @@ declare(strict_types=1);
  */
 namespace Multiplex\Constract;
 
-use Hyperf\Engine\Channel;
 use Multiplex\ChannelManager;
 
 interface ClientInterface

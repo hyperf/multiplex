@@ -21,6 +21,4 @@ interface ClientInterface
     public function recv(int $id);
 
     public function getChannelManager(): ChannelManager;
-
-    public function getWaiter(): Channel;
 }

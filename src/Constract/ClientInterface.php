@@ -20,6 +20,12 @@ interface ClientInterface
      */
     public function set(array $settings);
 
+    /**
+     * @param mixed $data
+     * @return mixed
+     */
+    public function request($data);
+
     public function send($data): int;
 
     public function recv(int $id);

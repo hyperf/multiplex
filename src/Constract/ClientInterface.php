@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Multiplex\Constract;
 
 use Hyperf\Engine\Channel;
-use Multiplex\ChannelMapper;
+use Multiplex\ChannelManager;
 
 interface ClientInterface
 {
@@ -20,7 +20,7 @@ interface ClientInterface
 
     public function recv(int $id);
 
-    public function getChannelMapper(): ChannelMapper;
+    public function getChannelManager(): ChannelManager;
 
     public function getWaiter(): Channel;
 }

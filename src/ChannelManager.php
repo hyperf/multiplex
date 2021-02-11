@@ -13,7 +13,7 @@ namespace Multiplex;
 
 use Hyperf\Engine\Channel;
 
-class ChannelMapper
+class ChannelManager
 {
     /**
      * @var Channel[]
@@ -27,10 +27,15 @@ class ChannelMapper
         }
 
         if ($initialize) {
-            return $this->channels[$id] = new Channel(1);
+            return $this->channels[$id] = $this->make(1);
         }
 
         return null;
+    }
+
+    public function make(int $limit): Channel
+    {
+        return new Channel($limit);
     }
 
     public function close(int $id): void

@@ -12,18 +12,18 @@ declare(strict_types=1);
 namespace HyperfTest\Cases;
 
 use Hyperf\Engine\Channel;
-use Multiplex\ChannelMapper;
+use Multiplex\ChannelManager;
 
 /**
  * @internal
  * @coversNothing
  */
-class ChannelMapperTest extends AbstractTestCase
+class ChannelManagerTest extends AbstractTestCase
 {
-    public function testChannelMapper()
+    public function testChannelManager()
     {
         $this->runInCoroutine(function () {
-            $mapper = new ChannelMapper();
+            $mapper = new ChannelManager();
             $chan = $mapper->get(1, true);
             $this->assertInstanceOf(Channel::class, $chan);
             $chan = $mapper->get(1);

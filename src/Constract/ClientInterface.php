@@ -15,6 +15,11 @@ use Multiplex\ChannelManager;
 
 interface ClientInterface
 {
+    /**
+     * @return $this
+     */
+    public function set(array $settings);
+
     public function send($data): int;
 
     public function recv(int $id);

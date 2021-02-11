@@ -11,6 +11,6 @@ declare(strict_types=1);
  */
 namespace Multiplex\Exception;
 
-class ServerBindFailedException extends RuntimeException
+class ClientConnectFailedException extends RuntimeException
 {
 }

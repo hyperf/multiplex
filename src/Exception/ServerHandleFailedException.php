@@ -11,6 +11,6 @@ declare(strict_types=1);
  */
 namespace Multiplex\Exception;
 
-class ServerHandleFailedException extends \RuntimeException
+class ServerHandleFailedException extends RuntimeException
 {
 }

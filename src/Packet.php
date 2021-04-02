@@ -11,7 +11,9 @@ declare(strict_types=1);
  */
 namespace Multiplex;
 
-class Packet
+use Multiplex\Constract\HasHeartbeatInterface;
+
+class Packet implements HasHeartbeatInterface
 {
     /**
      * @var int
@@ -37,5 +39,10 @@ class Packet
     public function getBody(): string
     {
         return $this->body;
+    }
+
+    public function isHeartbeat(): bool
+    {
+        return $this->id === 0 && in_array($this->body, [static::PING, static::PONG], true);
     }
 }

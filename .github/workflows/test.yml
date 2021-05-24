@@ -1,6 +1,10 @@
 name: PHPUnit
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron:  '0 10 * * *'
 
 env:
   SWOOLE_VERSION: '4.6.7'

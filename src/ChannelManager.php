@@ -46,4 +46,17 @@ class ChannelManager
 
         unset($this->channels[$id]);
     }
+
+    public function getChannels(): array
+    {
+        return $this->channels;
+    }
+
+    public function flush(): void
+    {
+        $channels = $this->getChannels();
+        foreach ($channels as $id => $channel) {
+            $this->close($id);
+        }
+    }
 }

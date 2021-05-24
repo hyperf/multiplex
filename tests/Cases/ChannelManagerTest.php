@@ -23,10 +23,10 @@ class ChannelManagerTest extends AbstractTestCase
     public function testChannelManager()
     {
         $this->runInCoroutine(function () {
-            $mapper = new ChannelManager();
-            $chan = $mapper->get(1, true);
+            $manager = new ChannelManager();
+            $chan = $manager->get(1, true);
             $this->assertInstanceOf(Channel::class, $chan);
-            $chan = $mapper->get(1);
+            $chan = $manager->get(1);
             $this->assertInstanceOf(Channel::class, $chan);
             go(function () use ($chan) {
                 usleep(10 * 1000);
@@ -34,9 +34,24 @@ class ChannelManagerTest extends AbstractTestCase
             });
 
             $this->assertSame('Hello World.', $chan->pop());
-            $mapper->close(1);
+            $manager->close(1);
             $this->assertTrue($chan->isClosing());
-            $this->assertNull($mapper->get(1));
+            $this->assertNull($manager->get(1));
+        });
+    }
+
+    public function testChannelFlush()
+    {
+        $this->runInCoroutine(function () {
+            $manager = new ChannelManager();
+            $manager->get(1, true);
+            $manager->get(2, true);
+            $manager->get(4, true);
+            $manager->get(5, true);
+
+            $this->assertSame(4, count($manager->getChannels()));
+            $manager->flush();
+            $this->assertSame(0, count($manager->getChannels()));
         });
     }
 }

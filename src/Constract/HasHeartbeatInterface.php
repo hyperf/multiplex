@@ -13,9 +13,9 @@ namespace Multiplex\Constract;
 
 interface HasHeartbeatInterface
 {
-    const PING = 'ping';
+    public const PING = 'ping';
 
-    const PONG = 'pong';
+    public const PONG = 'pong';
 
     public function isHeartbeat(): bool;
 }

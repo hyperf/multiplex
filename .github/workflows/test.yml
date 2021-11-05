@@ -11,7 +11,7 @@ env:
   SWOW_VERSION: 'develop'
 
 jobs:
-  ci:
+  swoole:
     name: Test for Swoole
     runs-on: 'ubuntu-latest'
     strategy:
@@ -33,8 +33,36 @@ jobs:
           ini-values: opcache.enable_cli=1
           coverage: none
       - name: Setup Swoole
-        if: ${{ matrix.engine == 'swoole' }}
         run: ./.github/swoole.install.sh
+      - name: Setup Packages
+        run: composer update -o
+      - name: Run Test Cases
+        run: |
+          composer analyse
+          composer test
+  swow:
+    name: Test for Swow
+    runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        php-version: [ '8.0' ]
+        swow-version: [ 'v0.1.0-nightly20210910', 'develop' ]
+      max-parallel: 2
+    env:
+      SW_VERSION: ${{ matrix.swow-version }}
+      PHP_VERSION: ${{ matrix.php-version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: phpize
+          ini-values: opcache.enable_cli=1
+          coverage: none
+      - name: Setup Swoole
+        run: ./.github/swow.install.sh
       - name: Setup Packages
         run: composer update -o
       - name: Run Test Cases

@@ -9,16 +9,13 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex\Constract;
+namespace Multiplex\Contract;
 
 use Multiplex\ChannelManager;
 
 interface ClientInterface
 {
-    /**
-     * @return $this
-     */
-    public function set(array $settings);
+    public function set(array $settings): static;
 
     /**
      * @param mixed $data

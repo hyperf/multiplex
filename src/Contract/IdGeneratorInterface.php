@@ -9,13 +9,9 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex\Constract;
+namespace Multiplex\Contract;
 
-interface HasHeartbeatInterface
+interface IdGeneratorInterface
 {
-    public const PING = 'ping';
-
-    public const PONG = 'pong';
-
-    public function isHeartbeat(): bool;
+    public function generate(): int;
 }

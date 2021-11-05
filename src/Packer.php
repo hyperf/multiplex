@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace Multiplex;
 
-use Multiplex\Constract\PackerInterface;
+use Multiplex\Contract\PackerInterface;
 
 class Packer implements PackerInterface
 {

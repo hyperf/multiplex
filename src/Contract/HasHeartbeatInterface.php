@@ -9,13 +9,13 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex\Constract;
+namespace Multiplex\Contract;
 
-use Multiplex\Packet;
-
-interface PackerInterface
+interface HasHeartbeatInterface
 {
-    public function pack(Packet $packet): string;
+    public const PING = 'ping';
 
-    public function unpack(string $data): Packet;
+    public const PONG = 'pong';
+
+    public function isHeartbeat(): bool;
 }

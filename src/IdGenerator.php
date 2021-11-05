@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace Multiplex;
 
-use Multiplex\Constract\IdGeneratorInterface;
+use Multiplex\Contract\IdGeneratorInterface;
 
 class IdGenerator implements IdGeneratorInterface
 {

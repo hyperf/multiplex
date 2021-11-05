@@ -9,9 +9,13 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex\Constract;
+namespace Multiplex\Contract;
 
-interface HasSerializerInterface
+use Multiplex\Packet;
+
+interface PackerInterface
 {
-    public function getSerializer(): SerializerInterface;
+    public function pack(Packet $packet): string;
+
+    public function unpack(string $data): Packet;
 }

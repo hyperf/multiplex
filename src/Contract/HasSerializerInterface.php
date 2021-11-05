@@ -9,17 +9,9 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace Multiplex\Constract;
+namespace Multiplex\Contract;
 
-interface SerializerInterface
+interface HasSerializerInterface
 {
-    /**
-     * @param mixed $data
-     */
-    public function serialize($data): string;
-
-    /**
-     * @return mixed
-     */
-    public function unserialize(string $serialized);
+    public function getSerializer(): SerializerInterface;
 }

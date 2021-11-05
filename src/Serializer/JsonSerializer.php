@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace Multiplex\Serializer;
 
-use Multiplex\Constract\SerializerInterface;
+use Multiplex\Contract\SerializerInterface;
 use Multiplex\Exception\ServerHandleFailedException;
 
 class JsonSerializer implements SerializerInterface

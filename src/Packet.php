@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace Multiplex;
 
-use Multiplex\Constract\HasHeartbeatInterface;
+use Multiplex\Contract\HasHeartbeatInterface;
 
 class Packet implements HasHeartbeatInterface
 {

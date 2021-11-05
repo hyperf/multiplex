@@ -64,7 +64,9 @@ jobs:
       - name: Setup Swoole
         run: ./.github/swow.install.sh
       - name: Setup Packages
-        run: composer update -o
+        run: |
+          composer update -o
+          composer require hyperf/engine-swow
       - name: Run Test Cases
         run: |
           composer analyse

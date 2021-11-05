@@ -30,7 +30,7 @@ class JsonSerializer implements SerializerInterface
             ];
         }
 
-        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+        return json_encode($result, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
     }
 
     public function unserialize(string $serialized)

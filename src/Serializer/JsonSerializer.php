@@ -11,7 +11,6 @@ declare(strict_types=1);
  */
 namespace Multiplex\Serializer;
 
-use Hyperf\Utils\Codec\Json;
 use Multiplex\Constract\SerializerInterface;
 use Multiplex\Exception\ServerHandleFailedException;
 
@@ -31,12 +30,12 @@ class JsonSerializer implements SerializerInterface
             ];
         }
 
-        return Json::encode($result);
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
     }
 
     public function unserialize(string $serialized)
     {
-        $data = Json::decode($serialized);
+        $data = json_decode($serialized, true, 512, JSON_THROW_ON_ERROR);
         if (array_key_exists('data', $data)) {
             return $data['data'];
         }

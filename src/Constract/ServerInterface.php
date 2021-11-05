@@ -11,17 +11,19 @@ declare(strict_types=1);
  */
 namespace Multiplex\Constract;
 
-use Hyperf\Utils\Collection;
 use Multiplex\Exception\ServerBindFailedException;
 use Multiplex\Exception\ServerStartFailedException;
 
 interface ServerInterface
 {
     /**
+     * @param $config = [
+     *     'package_max_length' => 1024 * 1024 * 2
+     * ]
      * @throws ServerBindFailedException
      * @return $this
      */
-    public function bind(string $name, int $port, Collection $config);
+    public function bind(string $name, int $port, array $config);
 
     /**
      * @return $this

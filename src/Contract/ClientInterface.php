@@ -17,10 +17,6 @@ interface ClientInterface
 {
     public function set(array $settings): static;
 
-    /**
-     * @param mixed $data
-     * @return mixed
-     */
     public function request($data);
 
     public function send($data): int;

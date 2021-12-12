@@ -21,7 +21,7 @@
     },
     "require": {
         "php": ">=8.0",
-        "hyperf/engine": "^1.1"
+        "hyperf/engine": "^1.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

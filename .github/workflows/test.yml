@@ -6,10 +6,6 @@ on:
   schedule:
     - cron: '0 2 * * *'
 
-env:
-  SW_VERSION: 'v4.8.1'
-  SWOW_VERSION: 'develop'
-
 jobs:
   swoole:
     name: Test for Swoole
@@ -27,7 +23,7 @@ jobs:
             swoole-version: 'v4.7.1'
           - php-version: '8.1'
             swoole-version: 'v4.8.3'
-      max-parallel: 5
+      max-parallel: 8
     env:
       SW_VERSION: ${{ matrix.swoole-version }}
       PHP_VERSION: ${{ matrix.php-version }}
@@ -54,9 +50,9 @@ jobs:
     runs-on: 'ubuntu-latest'
     strategy:
       matrix:
-        php-version: [ '8.0' ]
+        php-version: [ '8.0', '8.1' ]
         swow-version: [ 'v0.1.0-nightly20210910', 'develop' ]
-      max-parallel: 2
+      max-parallel: 4
     env:
       SW_VERSION: ${{ matrix.swow-version }}
       PHP_VERSION: ${{ matrix.php-version }}

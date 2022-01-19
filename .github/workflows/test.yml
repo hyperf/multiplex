@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         php-version: [ '8.0', '8.1' ]
-        swoole-version: [ 'v4.5.11', 'v4.6.7', 'v4.7.1', 'v4.8.3', 'master' ]
+        swoole-version: [ 'v4.5.11', 'v4.6.7', 'v4.7.1', 'v4.8.6', 'master' ]
         exclude:
           - php-version: '8.1'
             swoole-version: 'v4.5.11'
@@ -21,8 +21,6 @@ jobs:
             swoole-version: 'v4.6.7'
           - php-version: '8.1'
             swoole-version: 'v4.7.1'
-          - php-version: '8.1'
-            swoole-version: 'v4.8.3'
       max-parallel: 8
     env:
       SW_VERSION: ${{ matrix.swoole-version }}
@@ -51,7 +49,7 @@ jobs:
     strategy:
       matrix:
         php-version: [ '8.0', '8.1' ]
-        swow-version: [ 'v0.1.0-nightly20210910', 'develop' ]
+        swow-version: [ 'v0.1.0-nightly20220116', 'develop' ]
       max-parallel: 4
     env:
       SW_VERSION: ${{ matrix.swow-version }}
@@ -71,7 +69,7 @@ jobs:
       - name: Setup Packages
         run: |
           composer update -o
-          composer require hyperf/engine-swow
+          composer require "hyperf/engine-swow:^2.0"
       - name: Run Test Cases
         run: |
           composer analyse

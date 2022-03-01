@@ -35,7 +35,7 @@ class JsonSerializer implements SerializerInterface
 
     public function unserialize(string $serialized): mixed
     {
-        $data = json_decode($serialized, flags: JSON_THROW_ON_ERROR);
+        $data = json_decode($serialized, true, flags: JSON_THROW_ON_ERROR);
         if (array_key_exists('data', $data)) {
             return $data['data'];
         }

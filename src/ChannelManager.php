@@ -18,7 +18,7 @@ class ChannelManager
     /**
      * @var Channel[]
      */
-    protected $channels = [];
+    protected array $channels = [];
 
     public function get(int $id, bool $initialize = false): ?Channel
     {

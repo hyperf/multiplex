@@ -11,6 +11,9 @@ declare(strict_types=1);
  */
 namespace Multiplex\Exception;
 
-class ChannelLosedException extends RuntimeException
+/**
+ * @deprecated
+ */
+class ChannelLosedException extends ChannelLostException
 {
 }

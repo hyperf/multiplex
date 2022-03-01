@@ -16,7 +16,7 @@ use Multiplex\Exception\ServerHandleFailedException;
 
 class JsonSerializer implements SerializerInterface
 {
-    public function serialize($data): string
+    public function serialize(mixed $data): string
     {
         if ($data instanceof \Throwable) {
             $result = [
@@ -33,9 +33,9 @@ class JsonSerializer implements SerializerInterface
         return json_encode($result, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
     }
 
-    public function unserialize(string $serialized)
+    public function unserialize(string $serialized): mixed
     {
-        $data = json_decode($serialized, true, 512, JSON_THROW_ON_ERROR);
+        $data = json_decode($serialized, true, flags: JSON_THROW_ON_ERROR);
         if (array_key_exists('data', $data)) {
             return $data['data'];
         }

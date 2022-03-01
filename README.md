@@ -1,4 +1,4 @@
-# channel driven multiplexing connection
+# Channel driven multiplexing connection
 
 ```
 composer require multiplex/multiplex

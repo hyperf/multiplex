@@ -15,14 +15,8 @@ use Throwable;
 
 class ExceptionThrower
 {
-    /**
-     * @var Throwable
-     */
-    protected $throwable;
-
-    public function __construct(Throwable $throwable)
+    public function __construct(protected Throwable $throwable)
     {
-        $this->throwable = $throwable;
     }
 
     public function getThrowable(): Throwable

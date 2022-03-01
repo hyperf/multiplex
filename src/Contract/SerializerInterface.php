@@ -13,13 +13,7 @@ namespace Multiplex\Contract;
 
 interface SerializerInterface
 {
-    /**
-     * @param mixed $data
-     */
-    public function serialize($data): string;
+    public function serialize(mixed $data): string;
 
-    /**
-     * @return mixed
-     */
-    public function unserialize(string $serialized);
+    public function unserialize(string $serialized): mixed;
 }

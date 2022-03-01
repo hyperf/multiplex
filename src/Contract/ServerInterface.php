@@ -21,14 +21,10 @@ interface ServerInterface
      *     'package_max_length' => 1024 * 1024 * 2
      * ]
      * @throws ServerBindFailedException
-     * @return $this
      */
-    public function bind(string $name, int $port, array $config);
+    public function bind(string $name, int $port, array $config): static;
 
-    /**
-     * @return $this
-     */
-    public function handle(callable $callable);
+    public function handle(callable $callable): static;
 
     /**
      * @throws ServerStartFailedException

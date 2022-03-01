@@ -17,11 +17,11 @@ interface ClientInterface
 {
     public function set(array $settings): static;
 
-    public function request($data);
+    public function request(mixed $data): mixed;
 
-    public function send($data): int;
+    public function send(mixed $data): int;
 
-    public function recv(int $id);
+    public function recv(int $id): mixed;
 
     public function getChannelManager(): ChannelManager;
 

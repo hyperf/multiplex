@@ -21,6 +21,7 @@ jobs:
             swoole-version: 'v4.6.7'
           - php-version: '8.1'
             swoole-version: 'v4.7.1'
+      fail-fast: false
       max-parallel: 8
     env:
       SW_VERSION: ${{ matrix.swoole-version }}

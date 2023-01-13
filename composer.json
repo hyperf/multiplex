@@ -30,7 +30,7 @@
         "phpstan/phpstan": "^1.0",
         "phpunit/phpunit": "^9.5",
         "swoole/ide-helper": "dev-master",
-        "swow/swow": "dev-develop",
+        "swow/swow": "^1.0",
         "symfony/var-dumper": "^5.1"
     },
     "suggest": {

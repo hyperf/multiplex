@@ -13,12 +13,13 @@ namespace Multiplex\Serializer;
 
 use Multiplex\Contract\SerializerInterface;
 use Multiplex\Exception\ServerHandleFailedException;
+use Throwable;
 
 class JsonSerializer implements SerializerInterface
 {
     public function serialize(mixed $data): string
     {
-        if ($data instanceof \Throwable) {
+        if ($data instanceof Throwable) {
             $result = [
                 'code' => $data->getCode(),
                 'message' => $data->getMessage(),

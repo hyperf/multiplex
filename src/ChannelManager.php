@@ -60,4 +60,9 @@ class ChannelManager
             $this->close($id);
         }
     }
+
+    public function isEmpty(): bool
+    {
+        return count($this->channels) === 0;
+    }
 }

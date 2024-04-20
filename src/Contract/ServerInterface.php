@@ -18,9 +18,7 @@ use Multiplex\Exception\ServerStartFailedException;
 interface ServerInterface
 {
     /**
-     * @param $config = [
-     *               'package_max_length' => 1024 * 1024 * 2
-     *               ]
+     * @param array $config the configs of server, like `package_max_length`
      * @throws ServerBindFailedException
      */
     public function bind(string $name, int $port, array $config): static;

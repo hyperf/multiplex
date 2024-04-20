@@ -12,17 +12,17 @@ jobs:
     runs-on: 'ubuntu-latest'
     strategy:
       matrix:
-        php-version: [ '8.0', '8.1' ]
-        swoole-version: [ 'v4.5.11', 'v4.6.7', 'v4.7.1', 'v4.8.7', 'master' ]
+        php-version: [ '8.3', '8.2', '8.1', '8.0' ]
+        sw-version: [ 'v5.0.3', 'v5.1.2', 'master' ]
         exclude:
-          - php-version: '8.1'
-            swoole-version: 'v4.5.11'
-          - php-version: '8.1'
-            swoole-version: 'v4.6.7'
-          - php-version: '8.1'
-            swoole-version: 'v4.7.1'
+          - php-version: '8.3'
+            sw-version: 'v5.0.3'
+          - php-version: '8.0'
+            sw-version: 'v5.1.2'
+          - php-version: '8.0'
+            sw-version: 'master'
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 12
     env:
       SW_VERSION: ${{ matrix.swoole-version }}
       PHP_VERSION: ${{ matrix.php-version }}
@@ -49,10 +49,10 @@ jobs:
     runs-on: 'ubuntu-latest'
     strategy:
       matrix:
-        php-version: [ '8.0', '8.1' ]
-        swow-version: [ 'v1.0.0', 'develop' ]
+        php-version: [ '8.3', '8.2', '8.1', '8.0' ]
+        sw-version: [ 'v1.4.1', 'develop' ]
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 8
     env:
       SW_VERSION: ${{ matrix.swow-version }}
       PHP_VERSION: ${{ matrix.php-version }}

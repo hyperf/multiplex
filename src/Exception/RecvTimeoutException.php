@@ -12,4 +12,6 @@ declare(strict_types=1);
 
 namespace Multiplex\Exception;
 
-class RecvTimeoutException extends RuntimeException {}
+class RecvTimeoutException extends RuntimeException
+{
+}

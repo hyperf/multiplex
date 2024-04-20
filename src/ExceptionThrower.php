@@ -16,7 +16,9 @@ use Throwable;
 
 class ExceptionThrower
 {
-    public function __construct(protected Throwable $throwable) {}
+    public function __construct(protected Throwable $throwable)
+    {
+    }
 
     public function getThrowable(): Throwable
     {

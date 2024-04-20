@@ -16,7 +16,9 @@ use Multiplex\Contract\HasHeartbeatInterface;
 
 class Packet implements HasHeartbeatInterface
 {
-    public function __construct(protected int $id, protected string $body) {}
+    public function __construct(protected int $id, protected string $body)
+    {
+    }
 
     public function getId(): int
     {

@@ -12,4 +12,6 @@ declare(strict_types=1);
 
 namespace Multiplex\Exception;
 
-class ClientConnectFailedException extends RuntimeException {}
+class ClientConnectFailedException extends RuntimeException
+{
+}

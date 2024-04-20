@@ -12,4 +12,6 @@ declare(strict_types=1);
 
 namespace Multiplex\Exception;
 
-class RuntimeException extends \RuntimeException {}
+class RuntimeException extends \RuntimeException
+{
+}

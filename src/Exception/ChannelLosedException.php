@@ -15,4 +15,6 @@ namespace Multiplex\Exception;
 /**
  * @deprecated
  */
-class ChannelLosedException extends ChannelLostException {}
+class ChannelLosedException extends ChannelLostException
+{
+}

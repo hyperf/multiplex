@@ -9,15 +9,14 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 namespace Multiplex;
 
 use Multiplex\Contract\HasHeartbeatInterface;
 
 class Packet implements HasHeartbeatInterface
 {
-    public function __construct(protected int $id, protected string $body)
-    {
-    }
+    public function __construct(protected int $id, protected string $body) {}
 
     public function getId(): int
     {

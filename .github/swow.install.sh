@@ -8,7 +8,7 @@ rm swow.tar.gz
 cd swow/ext || exit
 
 phpize
-./configure --enable-swow-debug --enable-swow-ssl --enable-swow-curl
+./configure --enable-swow --enable-swow-ssl --enable-swow-curl
 make -j "$(nproc)"
 sudo make install
 sudo sh -c "echo extension=swow > /etc/php/${PHP_VERSION}/cli/conf.d/swow.ini"
